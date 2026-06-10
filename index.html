@@ -16,14 +16,22 @@ html{scroll-behavior:smooth;}
 body{font-family:'Segoe UI',Arial,sans-serif;background:#f0f4f9;color:#1f2937;font-size:15px;line-height:1.6;}
 
 .site-header{background:var(--blue);}
-.header-top{display:flex;align-items:center;gap:20px;padding:20px 32px;max-width:1100px;margin:0 auto;}
-.header-logo{height:68px;width:auto;flex-shrink:0;border-radius:8px;}
-.header-text h1{font-size:22px;font-weight:800;color:#fff;line-height:1.2;letter-spacing:-.01em;}
-.header-text p{font-size:13px;color:rgba(255,255,255,0.65);margin-top:4px;}
-.live-badge{margin-left:auto;background:var(--gold);color:var(--blue);font-size:11px;font-weight:800;padding:5px 14px;border-radius:99px;letter-spacing:.08em;flex-shrink:0;display:flex;align-items:center;gap:6px;}
+.header-top{display:flex;align-items:center;gap:16px;padding:16px 24px;max-width:1100px;margin:0 auto;}
+.header-logo{height:60px;width:auto;flex-shrink:0;border-radius:8px;}
+.header-text{flex:1;min-width:0;}
+.header-text h1{font-size:20px;font-weight:800;color:#fff;line-height:1.2;letter-spacing:-.01em;}
+.header-text p{font-size:12px;color:rgba(255,255,255,0.65);margin-top:4px;}
+.live-badge{margin-left:auto;background:var(--gold);color:var(--blue);font-size:11px;font-weight:800;padding:5px 12px;border-radius:99px;letter-spacing:.08em;flex-shrink:0;display:flex;align-items:center;gap:6px;}
 .live-dot{width:7px;height:7px;border-radius:50%;background:var(--blue);animation:pulse 1.6s ease-in-out infinite;}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
-.header-banner{background:var(--gold);text-align:center;padding:8px 20px;font-size:12px;font-weight:700;color:var(--blue);letter-spacing:.04em;}
+.header-banner{background:var(--gold);text-align:center;padding:8px 16px;font-size:11px;font-weight:700;color:var(--blue);letter-spacing:.04em;line-height:1.5;}
+@media(max-width:520px){
+  .header-top{flex-wrap:wrap;padding:14px 16px;gap:12px;}
+  .header-logo{height:48px;}
+  .header-text h1{font-size:16px;}
+  .header-text p{font-size:11px;}
+  .live-badge{font-size:10px;padding:4px 10px;}
+}
 .container{max-width:1100px;margin:0 auto;padding:28px 20px;}
 .section-title{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--blue);border-left:3px solid var(--gold);padding-left:10px;margin-bottom:16px;}
 
@@ -154,14 +162,14 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:#f0f4f9;color:#1f2937;fo
 <main class="container">
 
   <div class="last-updated">
-    &#9679;&nbsp; Last updated by <strong id="updater" style="margin:0 4px;">Lexi Acosta</strong> &nbsp;·&nbsp; <span id="update-date">June 9, 2026</span>
+    &#9679;&nbsp; Last updated by <strong id="updater" style="margin:0 4px;"><a href="https://www.facebook.com/lexi.necronomicon/posts/pfbid02H85Dff7CSNTBQpzh5XfVHHBhybg5Bko3y8Ztkm3w9P24TBg5snXd2FBxnxXB7exil" target="_blank" style="color:inherit;font-weight:700;text-decoration:underline;">Lexi Acosta</a></strong> &nbsp;·&nbsp; <span id="update-date">June 10, 2026 9:04am</span>
   </div>
 
   <div class="section-title">Relief drive at a glance</div>
   <div class="metric-grid">
     <div class="metric-card gold-top">
       <div class="metric-label">Total funds raised</div>
-      <div class="metric-value gold" id="m-funds">&#8369;79,950</div>
+      <div class="metric-value gold" id="m-funds">&#8369;151,603.94</div>
       <div class="metric-sub">Philippine Pesos</div>
     </div>
     <div class="metric-card">
@@ -246,7 +254,7 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:#f0f4f9;color:#1f2937;fo
 
     <div class="contact-bar">
       <div class="contact-bar-title">Contact us</div>
-      <div class="contact-item">&#128444; fb.com/people/Rotaract-Club-of-Metro-Koronadal</div>
+      <div class="contact-item">&#128444; <a href="https://www.facebook.com/people/Rotaract-Club-of-Metro-Koronadal" target="_blank" style="color:rgba(255,255,255,0.85);text-decoration:none;">racmetrokoronadal on Facebook</a></div>
       <div class="contact-address">Drop-off: Modern Visuals, Inc., Hocson Farm, Upper Paredes St., Brgy. Zone 4, Koronadal City, South Cotabato</div>
     </div>
   </div>
@@ -260,7 +268,7 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:#f0f4f9;color:#1f2937;fo
 <div class="partner-card"><div class="partner-avatar" style="background:#3C3489;">RC SAC</div><div class="partner-info"><div class="partner-name">Rotaract Club of Koronadal – St. Alexius College</div><div class="partner-role">Partner Rotaract club</div></div></div>
 <div class="partner-card"><div class="partner-avatar" style="background:#185FA5;">RC KB</div><div class="partner-info"><div class="partner-name">Rotaract Club of Korbel</div><div class="partner-role">Partner Rotaract club</div></div></div>
 <div class="partner-card"><div class="partner-avatar" style="background:#0F6E56;">RC STI</div><div class="partner-info"><div class="partner-name">Rotaract Club of STI College – Koronadal</div><div class="partner-role">Partner Rotaract club</div></div></div>
-<div class="partner-card"><div class="partner-avatar" style="background:#633806;">CYEJ</div><div class="partner-info"><div class="partner-name">Convergence of Youth for Environmental Justice</div><div class="partner-role">Data dashboard & coordination support</div></div></div>
+<div class="partner-card"><div class="partner-avatar" style="background:#633806;">CIEJ</div><div class="partner-info"><div class="partner-name">Convergence of Initiatives for Environmental Justice</div><div class="partner-role">Data dashboard & coordination support</div></div></div>
 <div class="partner-card"><div class="partner-avatar" style="background:#993556;">FNB</div><div class="partner-info"><div class="partner-name">Food Not Bombs Koronadal</div><div class="partner-role">Community support</div></div></div>
 <div class="partner-card"><div class="partner-avatar" style="background:#27500A;">SSRC</div><div class="partner-info"><div class="partner-name">Sole Strides Running Club</div><div class="partner-role">Volunteer support</div></div></div>
 <div class="partner-card"><div class="partner-avatar" style="background:#0C447C;">GSP</div><div class="partner-info"><div class="partner-name">Girl Scouts of the Philippines – South Cotabato Council</div><div class="partner-role">Volunteer manpower</div></div></div>
@@ -273,17 +281,24 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:#f0f4f9;color:#1f2937;fo
 <div class="partner-card"><div class="partner-avatar" style="background:#2C2C2A;">BH</div><div class="partner-info"><div class="partner-name">Backdoor Hikers</div><div class="partner-role">Volunteer manpower</div></div></div>
 <div class="partner-card"><div class="partner-avatar" style="background:#854F0B;">KSS</div><div class="partner-info"><div class="partner-name">Koronadal Street Spartan</div><div class="partner-role">Community support</div></div></div>
 <div class="partner-card"><div class="partner-avatar" style="background:#185FA5;">CSDSC</div><div class="partner-info"><div class="partner-name">Computer Studies Dept. Student Council – NDMU</div><div class="partner-role">Student organization support</div></div></div>
+<div class="partner-card"><div class="partner-avatar" style="background:#3C3489;">NPCC</div><div class="partner-info"><div class="partner-name">NDMU Phemes Communis Club</div><div class="partner-role">Student organization support</div></div></div>
+<div class="partner-card"><div class="partner-avatar" style="background:#0F6E56;">OHL</div><div class="partner-info"><div class="partner-name">One Health Leaders Program</div><div class="partner-role">Health sector support</div></div></div>
+<div class="partner-card"><div class="partner-avatar" style="background:#712B13;">CASSC</div><div class="partner-info"><div class="partner-name">NDMU College of Arts and Sciences Student Council</div><div class="partner-role">Student organization support</div></div></div>
+<div class="partner-card"><div class="partner-avatar" style="background:#A32D2D;">GVCFI</div><div class="partner-info"><div class="partner-name">GVCFI – Red Cross Youth Council</div><div class="partner-role">Volunteer support</div></div></div>
+<div class="partner-card"><div class="partner-avatar" style="background:#27500A;">UPV</div><div class="partner-info"><div class="partner-name">UPV-DOSE (XII)</div><div class="partner-role">Volunteer support</div></div></div>
+<div class="partner-card"><div class="partner-avatar" style="background:#533489;">PIOD</div><div class="partner-info"><div class="partner-name">PI-OMICRON Fraternity and Delta Sorority Gamma Lambda Chapter</div><div class="partner-role">Volunteer support</div></div></div>
+
   </div>
 
   <div class="ciej-credit">
-    Data dashboard built and managed by <strong>Convergence of Youth for Environmental Justice (CYEJ)</strong> in support of this relief drive.
+    Data dashboard built and managed by <strong>Convergence of Initiatives for Environmental Justice (CIEJ)</strong> in support of this relief drive.
   </div>
 
 </main>
 
 <footer class="site-footer">
   <div class="footer-social">
-    <a href="https://facebook.com/people/Rotaract-Club-of-Metro-Koronadal" target="_blank">Facebook: fb.com/people/Rotaract-Club-of-Metro-Koronadal</a>
+    <a href="https://www.facebook.com/people/Rotaract-Club-of-Metro-Koronadal" target="_blank">Facebook: racmetrokoronadal</a>
   </div>
   <div>Rotaract Club of Metro Koronadal &nbsp;·&nbsp; Relief Drive 2026 &nbsp;·&nbsp; Service Above Self</div>
   <div style="margin-top:6px;font-size:11px;">Rotary International District 3860</div>
@@ -307,7 +322,7 @@ function updateDashboard() {
          CHANGE THESE NUMBERS
      ════════════════════════════════ */
   var data = {
-    fundsRaised:           79950,
+    fundsRaised:           151603.94,
     familiesServed:        100,
     familiesTarget:        150,
     reliefBagsMade:        150,
@@ -316,7 +331,7 @@ function updateDashboard() {
     waterJugsTotal:        100,
     reliefBagsDistributed: 0,
     lastUpdatedBy:         "Lexi Acosta",
-    lastUpdatedDate:       "June 9, 2026"
+    lastUpdatedDate:       "June 10, 2026 9:04AM,"
   };
   /* ════════════════════════════════ */
 
