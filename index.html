@@ -62,7 +62,13 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:#f0f4f9;color:#1f2937;fo
 .bf-green{background:var(--green);}
 .bf-gold{background:var(--gold);}
 
-.data-table{width:100%;border-collapse:collapse;font-size:13px;}
+.location-card{background:var(--blue-xlight);border-radius:8px;padding:12px 14px;margin-bottom:10px;border-left:3px solid var(--blue);}
+.location-card:last-child{margin-bottom:0;}
+.location-name{font-size:13px;font-weight:700;color:var(--blue);}
+.location-status{display:inline-block;font-size:10px;font-weight:700;padding:2px 8px;border-radius:99px;float:right;}
+.location-status.distributed{background:var(--green-light);color:var(--green);}
+.location-status.pending{background:var(--gold-light);color:var(--gold-dark);}
+.location-detail{font-size:11px;color:var(--gray);margin-top:5px;line-height:1.5;clear:both;}
 .data-table th{text-align:left;font-size:10px;text-transform:uppercase;letter-spacing:.06em;color:var(--gray);padding:0 8px 10px 0;border-bottom:1px solid #e5e7eb;font-weight:600;}
 .data-table td{padding:9px 8px 9px 0;border-bottom:.5px solid #f3f4f6;color:#374151;vertical-align:middle;}
 .data-table tr:last-child td{border-bottom:none;}
@@ -211,16 +217,19 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:#f0f4f9;color:#1f2937;fo
       </div>
       <div style="margin-top:18px;">
         <div class="section-title">Locations reached</div>
-        <div class="dist-row">
-          <div class="dist-meta"><span class="dist-item-name">Malapatan, Sarangani</span><span class="dist-pct">Distributed</span></div>
-          <div class="dist-nums">100 relief bags &nbsp;·&nbsp; 100 water jugs &nbsp;·&nbsp; 360 liters bottled water</div>
+        <div class="location-card">
+          <span class="location-name">Malapatan, Sarangani</span><span class="location-status distributed">✓ Distributed</span>
+          <div class="location-detail">100 relief bags &nbsp;·&nbsp; 100 water jugs &nbsp;·&nbsp; 360 liters bottled water</div>
         </div>
-        <div class="dist-row">
-          <div class="dist-meta"><span class="dist-item-name">Balut Island</span><span class="dist-pct">To distribute</span></div>
-          <div class="dist-nums">320 relief bags &nbsp;·&nbsp; 7 water jugs &nbsp;·&nbsp; 1,560 liters bottled water</div>
+        <div class="location-card" style="border-left-color:var(--gold);">
+          <span class="location-name">Balut Island</span><span class="location-status pending">⏳ Upcoming</span>
+          <div class="location-detail">320 relief bags &nbsp;·&nbsp; 7 water jugs &nbsp;·&nbsp; 1,560 liters bottled water</div>
+        </div>
+        <div class="location-card" style="border-left-color:var(--gold);">
+          <span class="location-name">Glan, Sarangani</span><span class="location-status pending">⏳ Upcoming</span>
+          <div class="location-detail">148 relief bags &nbsp;·&nbsp; 30 boxes of water  &nbsp;·&nbsp; 4 boxes of clothes</div>
         </div>
       </div>
-    </div>
     </div>
     <div class="card">
       <div class="section-title">In-kind donations received</div>
@@ -272,7 +281,7 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:#f0f4f9;color:#1f2937;fo
 
     <div class="contact-bar">
       <div class="contact-bar-title">Contact us</div>
-      <div class="contact-item">&#128444; <a href="https://www.facebook.com/people/Rotaract-Club-of-Metro-Koronadal" target="_blank" style="color:rgba(255,255,255,0.85);text-decoration:none;">racmetrokoronadal on Facebook</a></div>
+      <div class="contact-item">&#128444; <a href="https://www.facebook.com/profile.php?id=100094600385172" target="_blank" style="color:rgba(255,255,255,0.85);text-decoration:none;">Rotaract Club of Metro Koronadal on Facebook</a></div>
       <div class="contact-address">Drop-off: Modern Visuals, Inc., Hocson Farm, Upper Paredes St., Brgy. Zone 4, Koronadal City, South Cotabato</div>
     </div>
   </div>
@@ -317,7 +326,7 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:#f0f4f9;color:#1f2937;fo
 
 <footer class="site-footer">
   <div class="footer-social">
-    <a href="https://www.facebook.com/people/Rotaract-Club-of-Metro-Koronadal" target="_blank">Facebook: racmetrokoronadal</a>
+    <a href="https://www.facebook.com/profile.php?id=100094600385172" target="_blank">Facebook: Rotaract Club of Metro Koronadal</a>
   </div>
   <div>Rotaract Club of Metro Koronadal &nbsp;·&nbsp; Relief Drive 2026 &nbsp;·&nbsp; Service Above Self</div>
   <div style="margin-top:6px;font-size:11px;">Rotary International District 3860</div>
@@ -344,13 +353,13 @@ function updateDashboard() {
     fundsRaised:           151603.94,
     familiesServed:        100,
     familiesTarget:        500,
-    reliefBagsMade:        150,
+    reliefBagsMade:        456,
     barangaysCovered:      1,
     waterJugsDistributed:  100,
     waterJugsTotal:        100,
-    reliefBagsDistributed: 0,
+    reliefBagsDistributed: 100,
     lastUpdatedBy:         "Lexi Acosta",
-    lastUpdatedDate:       "June 10, 2026 10:21am"
+    lastUpdatedDate:       "June 10, 2026 10:55pm"
   };
   /* ════════════════════════════════ */
 
