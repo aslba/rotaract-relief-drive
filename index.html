@@ -205,10 +205,10 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:#f0f4f9;color:#1f2937;fo
         <div class="bar-track"><div class="bar-fill bf-blue" style="width:100%"></div></div>
         <div class="dist-nums">100 of 100 distributed</div>
       </div>
-      <div class="dist-row">
-        <div class="dist-meta"><span class="dist-item-name">Relief bags</span><span class="dist-pct">0%</span></div>
-        <div class="bar-track"><div class="bar-fill bf-green" style="width:0%"></div></div>
-        <div class="dist-nums">100 of 456 distributed</div>
+<div class="dist-row">
+  <div class="dist-meta"><span class="dist-item-name">Relief bags</span><span class="dist-pct" id="pct-reliefbags">0%</span></div>
+  <div class="bar-track"><div class="bar-fill bf-green" id="bar-reliefbags" style="width:0%"></div></div>
+  <div class="dist-nums" id="nums-reliefbags">100 of 456 distributed</div>
       </div>
       <div class="dist-row">
         <div class="dist-meta"><span class="dist-item-name">Families served</span><span class="dist-pct">67%</span></div>
@@ -350,7 +350,7 @@ function updateDashboard() {
          CHANGE THESE NUMBERS
      ════════════════════════════════ */
   var data = {
-    fundsRaised:           151603.94,
+    fundsRaised:           173433.94,
     familiesServed:        100,
     familiesTarget:        500,
     reliefBagsMade:        456,
@@ -375,6 +375,12 @@ function updateDashboard() {
   var famPct = Math.round((data.familiesServed / data.familiesTarget) * 100);
   document.getElementById("bar-families").style.width = famPct + "%";
   document.getElementById("pct-families").textContent = famPct + "% of target reached";
+
+  var bagsPct = Math.round((data.reliefBagsDistributed / data.reliefBagsMade) * 100);
+document.getElementById("bar-reliefbags").style.width = bagsPct + "%";
+document.getElementById("pct-reliefbags").textContent = bagsPct + "%";
+document.getElementById("nums-reliefbags").textContent = 
+    data.reliefBagsDistributed + " of " + data.reliefBagsMade + " distributed";
 }
 updateDashboard();
 </script>
