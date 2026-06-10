@@ -162,7 +162,7 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:#f0f4f9;color:#1f2937;fo
 <main class="container">
 
   <div class="last-updated">
-    &#9679;&nbsp; Last updated by <strong id="updater" style="margin:0 4px;"><a href="https://www.facebook.com/lexi.necronomicon/posts/pfbid02H85Dff7CSNTBQpzh5XfVHHBhybg5Bko3y8Ztkm3w9P24TBg5snXd2FBxnxXB7exil" target="_blank" style="color:inherit;font-weight:700;text-decoration:underline;">Lexi Acosta</a></strong> &nbsp;·&nbsp; <span id="update-date">June 10, 2026 9:04am</span>
+    &#9679;&nbsp; Last updated by <strong id="updater" style="margin:0 4px;"><a href="https://www.facebook.com/lexi.necronomicon/posts/pfbid02H85Dff7CSNTBQpzh5XfVHHBhybg5Bko3y8Ztkm3w9P24TBg5snXd2FBxnxXB7exil" target="_blank" style="color:var(--blue);font-weight:700;text-decoration:underline;">Lexi Acosta</a></strong> &nbsp;·&nbsp; <span id="update-date">June 10, 2026 9:04AM</span>
   </div>
 
   <div class="section-title">Relief drive at a glance</div>
@@ -287,6 +287,7 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:#f0f4f9;color:#1f2937;fo
 <div class="partner-card"><div class="partner-avatar" style="background:#A32D2D;">GVCFI</div><div class="partner-info"><div class="partner-name">GVCFI – Red Cross Youth Council</div><div class="partner-role">Volunteer support</div></div></div>
 <div class="partner-card"><div class="partner-avatar" style="background:#27500A;">UPV</div><div class="partner-info"><div class="partner-name">UPV-DOSE (XII)</div><div class="partner-role">Volunteer support</div></div></div>
 <div class="partner-card"><div class="partner-avatar" style="background:#533489;">PIOD</div><div class="partner-info"><div class="partner-name">PI-OMICRON Fraternity and Delta Sorority Gamma Lambda Chapter</div><div class="partner-role">Volunteer support</div></div></div>
+<div class="partner-card"><div class="partner-avatar" style="background:#1D6A4A;">KC</div><div class="partner-info"><div class="partner-name">Kiwanis Club of Tnalak South Cotabato</div><div class="partner-role">Community support</div></div></div>
 
   </div>
 
@@ -331,7 +332,7 @@ function updateDashboard() {
     waterJugsTotal:        100,
     reliefBagsDistributed: 0,
     lastUpdatedBy:         "Lexi Acosta",
-    lastUpdatedDate:       "June 10, 2026 9:04AM,"
+    lastUpdatedDate:       "June 10, 2026 09:04am"
   };
   /* ════════════════════════════════ */
 
@@ -341,7 +342,7 @@ function updateDashboard() {
   document.getElementById("m-families-target").textContent = data.familiesTarget;
   document.getElementById("m-bags").textContent = data.reliefBagsMade;
   document.getElementById("m-brgy").textContent = data.barangaysCovered;
-  document.getElementById("updater").textContent = data.lastUpdatedBy;
+  document.getElementById("updater").innerHTML = '<a href="https://www.facebook.com/lexi.necronomicon/posts/pfbid02H85Dff7CSNTBQpzh5XfVHHBhybg5Bko3y8Ztkm3w9P24TBg5snXd2FBxnxXB7exil" target="_blank" style="color:var(--blue);font-weight:700;text-decoration:underline;">' + data.lastUpdatedBy + '</a>';
   document.getElementById("update-date").textContent = data.lastUpdatedDate;
 
   var famPct = Math.round((data.familiesServed / data.familiesTarget) * 100);
