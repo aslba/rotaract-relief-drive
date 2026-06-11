@@ -168,7 +168,7 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:#f0f4f9;color:#1f2937;fo
 <main class="container">
 
   <div class="last-updated">
-    &#9679;&nbsp; Last updated by <strong id="updater" style="margin:0 4px;"><a href="https://www.facebook.com/lexi.necronomicon/posts/pfbid02H85Dff7CSNTBQpzh5XfVHHBhybg5Bko3y8Ztkm3w9P24TBg5snXd2FBxnxXB7exil" target="_blank" style="color:var(--blue);font-weight:700;text-decoration:underline;">Lexi Acosta</a></strong> &nbsp;·&nbsp; <span id="update-date">June 10, 2026 10:21AM</span>
+    &#9679;&nbsp; Last updated by <strong id="updater" style="margin:0 4px;"><a href="https://www.facebook.com/lexi.necronomicon/posts/pfbid02H85Dff7CSNTBQpzh5XfVHHBhybg5Bko3y8Ztkm3w9P24TBg5snXd2FBxnxXB7exil" target="_blank" style="color:var(--blue);font-weight:700;text-decoration:underline;">Lexi Acosta</a></strong> &nbsp;·&nbsp; <span id="update-date">June 11, 2026 8:56AM</span>
   </div>
 
   <div class="section-title">Relief drive at a glance</div>
@@ -179,11 +179,11 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:#f0f4f9;color:#1f2937;fo
       <div class="metric-sub">Philippine Pesos</div>
     </div>
     <div class="metric-card">
-      <div class="metric-label">Families served</div>
-      <div class="metric-value" id="m-families">100</div>
-      <div class="metric-sub">of <span id="m-families-target">500</span> target families</div>
-      <div class="prog-track"><div class="prog-fill" id="bar-families" style="width:67%"></div></div>
-      <div class="prog-label" id="pct-families">67% of target reached</div>
+      <div class="metric-label">Distribution runs completed</div>
+      <div class="metric-value" id="m-runs">1</div>
+      <div class="metric-sub">of <span id="m-runs-target">3</span> planned runs</div>
+      <div class="prog-track"><div class="prog-fill" id="bar-runs" style="width:33%"></div></div>
+      <div class="prog-label" id="pct-runs">33% of runs completed</div>
     </div>
     <div class="metric-card green-top">
       <div class="metric-label">Relief bags produced</div>
@@ -191,9 +191,9 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:#f0f4f9;color:#1f2937;fo
       <div class="metric-sub">bags packed and ready</div>
     </div>
     <div class="metric-card">
-      <div class="metric-label">Barangays covered</div>
-      <div class="metric-value" id="m-brgy">3</div>
-      <div class="metric-sub">barangays reached</div>
+      <div class="metric-label">Locations reached</div>
+      <div class="metric-value" id="m-locations">1</div>
+      <div class="metric-sub">barangays/islands reached</div>
     </div>
   </div>
 
@@ -211,9 +211,9 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:#f0f4f9;color:#1f2937;fo
   <div class="dist-nums" id="nums-reliefbags">100 of 456 distributed</div>
       </div>
       <div class="dist-row">
-        <div class="dist-meta"><span class="dist-item-name">Families served</span><span class="dist-pct">67%</span></div>
-        <div class="bar-track"><div class="bar-fill bf-gold" style="width:67%"></div></div>
-        <div class="dist-nums">200 of 500 target</div>
+        <div class="dist-meta"><span class="dist-item-name">Water (liters)</span><span class="dist-pct" id="pct-water">12%</span></div>
+        <div class="bar-track"><div class="bar-fill bf-blue" id="bar-water" style="width:12%"></div></div>
+        <div class="dist-nums" id="nums-water">360 of 2,901 liters distributed</div>
       </div>
       <div style="margin-top:18px;">
         <div class="section-title">Locations reached</div>
@@ -227,7 +227,7 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:#f0f4f9;color:#1f2937;fo
         </div>
         <div class="location-card" style="border-left-color:var(--gold);">
           <span class="location-name">Glan, Sarangani</span><span class="location-status pending">⏳ Upcoming</span>
-          <div class="location-detail">148 relief bags &nbsp;·&nbsp; 30 boxes of water  &nbsp;·&nbsp; 4 boxes of clothes</div>
+          <div class="location-detail">148 relief bags &nbsp;·&nbsp; 1630 liters of water  &nbsp;·&nbsp; 1 Sawyer water filtration system</div>
         </div>
       </div>
     </div>
@@ -351,30 +351,38 @@ function updateDashboard() {
      ════════════════════════════════ */
   var data = {
     fundsRaised:           173433.94,
-    familiesServed:        100,
-    familiesTarget:        500,
+    runsCompleted:         1,
+    runsTarget:            3,
+    locationsReached:      1,
     reliefBagsMade:        456,
-    barangaysCovered:      1,
+    waterDistributed:      360,
+    waterTotal:            2901,
     waterJugsDistributed:  100,
     waterJugsTotal:        100,
     reliefBagsDistributed: 100,
     lastUpdatedBy:         "Lexi Acosta",
-    lastUpdatedDate:       "June 10, 2026 10:55pm"
+    lastUpdatedDate:       "June 11, 2026 8:56am"
   };
   /* ════════════════════════════════ */
 
   document.getElementById("m-funds").textContent =
     "₱" + data.fundsRaised.toLocaleString("en-PH");
-  document.getElementById("m-families").textContent = data.familiesServed;
-  document.getElementById("m-families-target").textContent = data.familiesTarget;
+  document.getElementById("m-runs").textContent = data.runsCompleted;
+  document.getElementById("m-runs-target").textContent = data.runsTarget;
   document.getElementById("m-bags").textContent = data.reliefBagsMade;
-  document.getElementById("m-brgy").textContent = data.barangaysCovered;
+  document.getElementById("m-locations").textContent = data.locationsReached;
   document.getElementById("updater").innerHTML = '<a href="https://www.facebook.com/lexi.necronomicon/posts/pfbid02H85Dff7CSNTBQpzh5XfVHHBhybg5Bko3y8Ztkm3w9P24TBg5snXd2FBxnxXB7exil" target="_blank" style="color:var(--blue);font-weight:700;text-decoration:underline;">' + data.lastUpdatedBy + '</a>';
   document.getElementById("update-date").textContent = data.lastUpdatedDate;
 
-  var famPct = Math.round((data.familiesServed / data.familiesTarget) * 100);
-  document.getElementById("bar-families").style.width = famPct + "%";
-  document.getElementById("pct-families").textContent = famPct + "% of target reached";
+  var runsPct = Math.round((data.runsCompleted / data.runsTarget) * 100);
+  document.getElementById("bar-runs").style.width = runsPct + "%";
+  document.getElementById("pct-runs").textContent = runsPct + "% of runs completed";
+
+  var waterPct = Math.round((data.waterDistributed / data.waterTotal) * 100);
+  document.getElementById("bar-water").style.width = waterPct + "%";
+  document.getElementById("pct-water").textContent = waterPct + "%";
+  document.getElementById("nums-water").textContent =
+    data.waterDistributed.toLocaleString("en-PH") + " of " + data.waterTotal.toLocaleString("en-PH") + " liters distributed";
 
   var bagsPct = Math.round((data.reliefBagsDistributed / data.reliefBagsMade) * 100);
 document.getElementById("bar-reliefbags").style.width = bagsPct + "%";
