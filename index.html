@@ -201,9 +201,9 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:#f0f4f9;color:#1f2937;fo
     <div class="card">
       <div class="section-title">Goods distribution progress</div>
       <div class="dist-row">
-        <div class="dist-meta"><span class="dist-item-name">Water jugs</span><span class="dist-pct">100%</span></div>
-        <div class="bar-track"><div class="bar-fill bf-blue" style="width:100%"></div></div>
-        <div class="dist-nums">100 of 100 distributed</div>
+        <div class="dist-meta"><span class="dist-item-name">Water jugs</span><span class="dist-pct" id="pct-jugs">100%</span></div>
+        <div class="bar-track"><div class="bar-fill bf-blue" id="bar-jugs" style="width:100%"></div></div>
+        <div class="dist-nums" id="nums-jugs">107 of 107 distributed</div>
       </div>
 <div class="dist-row">
   <div class="dist-meta"><span class="dist-item-name">Relief bags</span><span class="dist-pct" id="pct-reliefbags">0%</span></div>
@@ -403,6 +403,12 @@ function updateDashboard() {
   var runsPct = Math.round((data.runsCompleted / data.runsTarget) * 100);
   document.getElementById("bar-runs").style.width = runsPct + "%";
   document.getElementById("pct-runs").textContent = runsPct + "% of runs completed";
+
+  var jugsPct = Math.round((data.waterJugsDistributed / data.waterJugsTotal) * 100);
+  document.getElementById("bar-jugs").style.width = jugsPct + "%";
+  document.getElementById("pct-jugs").textContent = jugsPct + "%";
+  document.getElementById("nums-jugs").textContent = 
+  data.waterJugsDistributed + " of " + data.waterJugsTotal + " distributed";
 
   var waterPct = Math.round((data.waterDistributed / data.waterTotal) * 100);
   document.getElementById("bar-water").style.width = waterPct + "%";
