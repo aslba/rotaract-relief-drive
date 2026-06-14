@@ -69,6 +69,7 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:#f0f4f9;color:#1f2937;fo
 .location-status.distributed{background:var(--green-light);color:var(--green);}
 .location-status.pending{background:var(--gold-light);color:var(--gold-dark);}
 .location-detail{font-size:11px;color:var(--gray);margin-top:5px;line-height:1.5;clear:both;}
+.location-date{font-size:11px;color:var(--blue);font-weight:600;margin-top:4px;margin-bottom:2px;}
 .data-table th{text-align:left;font-size:10px;text-transform:uppercase;letter-spacing:.06em;color:var(--gray);padding:0 8px 10px 0;border-bottom:1px solid #e5e7eb;font-weight:600;}
 .data-table td{padding:9px 8px 9px 0;border-bottom:.5px solid #f3f4f6;color:#374151;vertical-align:middle;}
 .data-table tr:last-child td{border-bottom:none;}
@@ -231,7 +232,23 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:#f0f4f9;color:#1f2937;fo
         </div>
         <div class="location-card">
           <span class="location-name">Purok Pagkakaisa, Barangay San Isidro, Koronadal</span><span class="location-status distributed">✓ Distributed</span>
+          <div class="location-date">📅 June 12, 2026</div>
           <div class="location-detail">170 prepared meals</div>
+        </div>
+        <div class="location-card">
+          <span class="location-name">Jose Abad Santos, Davao de Oro</span><span class="location-status pending">⏳ Upcoming</span>
+          <div class="location-date">📅 June 15, 2026</div>
+          <div class="location-detail">100 relief bags &nbsp;·&nbsp; 100 pcs bottled water</div>
+        </div>
+        <div class="location-card">
+          <span class="location-name">Brgy. Camalian, Jose Abad Santos, Davao de Oro</span><span class="location-status pending">⏳ Upcoming</span>
+          <div class="location-date">📅 June 16, 2026</div>
+          <div class="location-detail">100 relief bags &nbsp;·&nbsp; 100 meters trapal  &nbsp;·&nbsp;  sacks of vegetables</div>
+        </div>
+        <div class="location-card">
+          <span class="location-name">Malapatan, Sarangani</span><span class="location-status pending">⏳ Upcoming</span>
+          <div class="location-date">📅 June 16, 2026</div>
+          <div class="location-detail">3000 liters water</div>
         </div>
         <div class="location-card" style="border-left-color:var(--gold);">
           <span class="location-name">To be decided</span><span class="location-status pending">⏳ Upcoming</span>
@@ -276,10 +293,11 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:#f0f4f9;color:#1f2937;fo
         <table class="data-table">
           <thead><tr><th>Item</th><th>Qty</th><th>Unit</th></tr></thead>
           <tbody>
-            <tr><td>Relief bags (rice + assorted groceries)</td><td class="qty-val">456</td><td>bags</td></tr>
+            <tr><td>Relief bags (rice + assorted groceries)</td><td class="qty-val">728</td><td>bags</td></tr>
             <tr><td>Water (bottled)</td><td class="qty-val">166</td><td>bottles</td></tr>
             <tr><td>Water (jugs)</td><td class="qty-val">100</td><td>jugs</td></tr>
             <tr><td>Trapal</td><td class="qty-val">50</td><td>meters</td></tr>
+            <tr><td>Hygiene kits</td><td class="qty-val">37</td><td>kits</td></tr>
           </tbody>
         </table>
       </div>
@@ -378,16 +396,16 @@ function updateDashboard() {
   var data = {
     fundsRaised:           200739.07,
     runsCompleted:         4,
-    runsTarget:            5,
+    runsTarget:            7,
     locationsReached:      4,
-    reliefBagsMade:        568,
+    reliefBagsMade:        728,
     waterDistributed:      3550,
     waterTotal:            4440,
     waterJugsDistributed:  107,
     waterJugsTotal:        107,
     reliefBagsDistributed: 568,
     lastUpdatedBy:         "Lexi Acosta",
-    lastUpdatedDate:       "June 13, 2026 2:30am"
+    lastUpdatedDate:       "June 14, 2026 10:30am"
   };
   /* ════════════════════════════════ */
 
