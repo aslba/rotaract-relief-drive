@@ -9,6 +9,8 @@
   --blue:#003478;--blue-light:#D6E4F7;--blue-xlight:#EEF4FC;
   --gold:#C69C26;--gold-light:#FAF0D0;--gold-dark:#7A6010;
   --green:#1D6A4A;--green-light:#E1F5EE;
+  --orange:#C2410C;--orange-light:#FFF1E0;
+  --red:#B42318;--red-light:#FEE4E2;
   --gray:#6b7280;--gray-light:#f3f4f6;--white:#ffffff;
 }
 *{box-sizing:border-box;margin:0;padding:0;}
@@ -76,6 +78,33 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:#f0f4f9;color:#1f2937;fo
 .qty-val{font-weight:700;color:var(--blue);font-size:15px;}
 .pill{display:inline-block;font-size:10px;font-weight:700;padding:2px 9px;border-radius:99px;}
 .pill-g{background:var(--green-light);color:#0F6E56;}
+
+/* ── DONATIONS: SEARCH + SCROLLABLE TABLE ── */
+.donation-search{width:100%;padding:9px 12px;font-size:13px;border:1px solid #e5e7eb;border-radius:8px;margin-bottom:10px;outline:none;font-family:inherit;background:var(--gray-light);}
+.donation-search:focus{border-color:var(--blue);background:var(--white);}
+.table-scroll{max-height:470px;overflow-y:auto;border-radius:6px;}
+.table-scroll .data-table thead th{position:sticky;top:0;background:var(--white);z-index:1;box-shadow:0 1px 0 #e5e7eb;}
+.donation-empty{display:none;font-size:12px;color:var(--gray);text-align:center;padding:16px 0;}
+
+/* ── FUNDS STATUS BANNER ── */
+.funds-banner{background:var(--white);border-radius:14px;padding:22px 24px;margin-bottom:28px;border:1px solid #e5e7eb;cursor:pointer;transition:box-shadow .15s ease,transform .15s ease;}
+.funds-banner:hover{box-shadow:0 6px 20px rgba(0,0,0,0.08);transform:translateY(-1px);}
+.funds-banner-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px;flex-wrap:wrap;gap:8px;}
+.funds-banner-title{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--blue);border-left:3px solid var(--gold);padding-left:10px;}
+.funds-donate-cta{font-size:12px;font-weight:800;color:var(--blue);text-decoration:none;white-space:nowrap;}
+.funds-banner-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:14px;}
+@media(max-width:560px){.funds-banner-stats{grid-template-columns:1fr;gap:12px;}}
+.funds-stat-label{font-size:10px;color:var(--gray);font-weight:700;text-transform:uppercase;letter-spacing:.05em;margin-bottom:4px;}
+.funds-stat-value{font-size:22px;font-weight:800;color:var(--blue);line-height:1.1;}
+.funds-stat-value.fs-warn-orange{color:var(--orange);}
+.funds-stat-value.fs-warn-red{color:var(--red);}
+.funds-progress-track{background:var(--gray-light);border-radius:99px;height:8px;overflow:hidden;}
+.funds-progress-fill{height:100%;border-radius:99px;transition:width 1s ease;background:var(--green);}
+.funds-progress-fill.fs-warn-orange{background:var(--orange);}
+.funds-progress-fill.fs-warn-red{background:var(--red);}
+.funds-progress-label{font-size:11.5px;color:var(--gray);margin-top:7px;}
+.funds-progress-label .fs-warn-orange{color:var(--orange);font-weight:700;}
+.funds-progress-label .fs-warn-red{color:var(--red);font-weight:700;}
 
 /* ── DONATE SECTION ── */
 .donate-section{background:var(--blue);border-radius:16px;padding:28px;margin-bottom:28px;}
@@ -198,6 +227,29 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:#f0f4f9;color:#1f2937;fo
     </div>
   </div>
 
+  <div class="funds-banner" id="funds-banner" onclick="document.getElementById('how-to-donate').scrollIntoView({behavior:'smooth', block:'start'});">
+    <div class="funds-banner-top">
+      <div class="funds-banner-title">Funds status</div>
+      <a class="funds-donate-cta" href="#how-to-donate" onclick="event.preventDefault();">Donate now &rarr;</a>
+    </div>
+    <div class="funds-banner-stats">
+      <div>
+        <div class="funds-stat-label">Total raised</div>
+        <div class="funds-stat-value" id="fs-raised">&#8369;0.00</div>
+      </div>
+      <div>
+        <div class="funds-stat-label">Total spent</div>
+        <div class="funds-stat-value" id="fs-spent">&#8369;0.00</div>
+      </div>
+      <div>
+        <div class="funds-stat-label">Remaining</div>
+        <div class="funds-stat-value" id="fs-remaining">&#8369;0.00</div>
+      </div>
+    </div>
+    <div class="funds-progress-track"><div class="funds-progress-fill" id="funds-progress-fill" style="width:0%"></div></div>
+    <div class="funds-progress-label" id="funds-progress-label">0% of raised funds spent</div>
+  </div>
+
   <div class="two-col">
     <div class="card">
       <div class="section-title">Goods distribution progress</div>
@@ -263,7 +315,9 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:#f0f4f9;color:#1f2937;fo
     </div>
     <div class="card">
       <div class="section-title">In-kind donations received</div>
-      <table class="data-table">
+      <input type="text" class="donation-search" id="donation-search" placeholder="&#128269; Search donations (e.g. rice, soap, water)..." oninput="filterDonations()">
+      <div class="table-scroll">
+      <table class="data-table" id="donations-table">
         <thead><tr><th>Item</th><th>Qty</th><th>Unit</th><th>Status</th></tr></thead>
         <tbody>
           <tr><td>Alamang</td><td class="qty-val">40</td><td>pieces</td><td><span class="pill pill-g">Received</span></td></tr>
@@ -321,6 +375,8 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:#f0f4f9;color:#1f2937;fo
           <tr><td>Water containers</td><td class="qty-val">195</td><td>various sizes</td><td><span class="pill pill-g">Received</span></td></tr>
         </tbody>
       </table>
+      </div>
+      <div class="donation-empty" id="donation-empty">No matching donations found.</div>
       <div style="margin-top:18px;">
         <div class="section-title">Relief goods produced</div>
         <table class="data-table">
@@ -338,7 +394,7 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:#f0f4f9;color:#1f2937;fo
   </div>
 
   <!-- DONATE SECTION: 4 equal photos + contact bar below -->
-  <div class="donate-section">
+  <div class="donate-section" id="how-to-donate">
     <div class="section-title">How to donate</div>
 
     <div class="photo-grid">
@@ -429,6 +485,7 @@ function updateDashboard() {
      ════════════════════════════════ */
   var data = {
     fundsRaised:           231695.10,
+    totalSpent:            200806.10,
     runsCompleted:         7,
     runsTarget:            7,
     locationsReached:      6,
@@ -439,7 +496,7 @@ function updateDashboard() {
     waterJugsTotal:        107,
     reliefBagsDistributed: 1200,
     lastUpdatedBy:         "Lexi Acosta",
-    lastUpdatedDate:       "June 18, 2026 10:30am"
+    lastUpdatedDate:       "June 18, 2026 11:30am"
   };
   /* ════════════════════════════════ */
 
@@ -451,6 +508,35 @@ function updateDashboard() {
   document.getElementById("m-locations").textContent = data.locationsReached;
   document.getElementById("updater").innerHTML = '<a href="https://www.facebook.com/lexi.necronomicon/posts/pfbid02H85Dff7CSNTBQpzh5XfVHHBhybg5Bko3y8Ztkm3w9P24TBg5snXd2FBxnxXB7exil" target="_blank" style="color:var(--blue);font-weight:700;text-decoration:underline;">' + data.lastUpdatedBy + '</a>';
   document.getElementById("update-date").textContent = data.lastUpdatedDate;
+
+  /* ── Funds status banner ── */
+  var fmtPeso = function(n){
+    return "₱" + n.toLocaleString("en-PH", {minimumFractionDigits:2, maximumFractionDigits:2});
+  };
+  var remaining = data.fundsRaised - data.totalSpent;
+  var spentPct = Math.min(100, Math.round((data.totalSpent / data.fundsRaised) * 1000) / 10);
+
+  document.getElementById("fs-raised").textContent = fmtPeso(data.fundsRaised);
+  document.getElementById("fs-spent").textContent = fmtPeso(data.totalSpent);
+  document.getElementById("fs-remaining").textContent = fmtPeso(remaining);
+
+  var remainingEl = document.getElementById("fs-remaining");
+  var fillEl = document.getElementById("funds-progress-fill");
+  var labelEl = document.getElementById("funds-progress-label");
+  remainingEl.classList.remove("fs-warn-orange", "fs-warn-red");
+  fillEl.classList.remove("fs-warn-orange", "fs-warn-red");
+
+  var warnClass = "";
+  if (spentPct >= 85) { warnClass = "fs-warn-red"; }
+  else if (spentPct >= 65) { warnClass = "fs-warn-orange"; }
+
+  if (warnClass) {
+    remainingEl.classList.add(warnClass);
+    fillEl.classList.add(warnClass);
+  }
+  fillEl.style.width = spentPct + "%";
+  labelEl.innerHTML = spentPct + "% of raised funds " +
+    (warnClass ? '<span class="' + warnClass + '">already spent — funds running low</span>' : "already spent");
 
   var runsPct = Math.round((data.runsCompleted / data.runsTarget) * 100);
   document.getElementById("bar-runs").style.width = runsPct + "%";
@@ -474,6 +560,19 @@ document.getElementById("pct-reliefbags").textContent = bagsPct + "%";
 document.getElementById("nums-reliefbags").textContent = 
     data.reliefBagsDistributed + " of " + data.reliefBagsMade + " distributed";
 }
+
+function filterDonations() {
+  var input = document.getElementById("donation-search").value.trim().toLowerCase();
+  var rows = document.querySelectorAll("#donations-table tbody tr");
+  var visibleCount = 0;
+  rows.forEach(function(row) {
+    var match = row.textContent.toLowerCase().indexOf(input) > -1;
+    row.style.display = match ? "" : "none";
+    if (match) visibleCount++;
+  });
+  document.getElementById("donation-empty").style.display = visibleCount === 0 ? "block" : "none";
+}
+
 updateDashboard();
 </script>
 
